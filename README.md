@@ -58,13 +58,15 @@ To create a GitHub repository with instructions on connecting the Arducam IMX477
 
 -
     ```bash
-    git clone https://github.com/ArduCAM/MIPI_Camera.git
-    cd MIPI_Camera/Jetson/Jetvariety/example
+    SENSOR_ID=0 # 0 for CAM0 and 1 for CAM1 ports
+    FRAMERATE=60 # Framerate can go from 2 to 60 for 1920x1080 mode
+    gst-launch-1.0 -e nvarguscamerasrc sensor-id=$SENSOR_ID ! "video/x-raw(memory:NVMM),width=1920,height=1080,framerate=$FRAMERATE/1" ! nvv4l2h264enc ! h264parse ! mp4mux ! filesink location=rpi_v3_imx477_cam$SENSOR_ID.mp4
+
     ```
 
 ### ****5. Running basic face detection****
  
-- **Clone the given repository**:
+- ****Clone the given repository****:
   - 
     ```bash
     git clone https://github.com/JetsonHacksNano/CSI-Camera.git
