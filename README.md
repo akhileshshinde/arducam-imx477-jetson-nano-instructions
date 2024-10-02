@@ -26,6 +26,7 @@ To create a GitHub repository with instructions on connecting the Arducam IMX477
     wget https://github.com/ArduCAM/MIPI_Camera/releases/download/v0.0.3/install_full.sh
     chmod +x install_full.sh
     ./install_full.sh -m imx477
+
     ```
 
 ### ****3. Validate Camera Connection****
@@ -53,45 +54,32 @@ To create a GitHub repository with instructions on connecting the Arducam IMX477
     v4l2-ctl --list-formats-ext
     ```
 
-### ****4. Running a Test Application****
+### ****4. Capture video****
 
-- **Clone Example Code**:
-  - To test your setup, clone the example code from GitHub:
-
+-
     ```bash
     git clone https://github.com/ArduCAM/MIPI_Camera.git
     cd MIPI_Camera/Jetson/Jetvariety/example
     ```
 
-- **Run the Demo Application**:
-  - Execute the following command to start capturing video:
-
+### ****5. Running basic face detection****
+ 
+- **Clone the given repository**:
+  - 
     ```bash
-    python arducam_displayer.py
+    git clone https://github.com/JetsonHacksNano/CSI-Camera.git
     ```
 
-### ****5. Additional Features****
+### ****6. Then try running basic codes in that repository****
 
-- **Accessing Sensor Registers**:
-  - You can read sensor registers using provided scripts such as `rw_sensor.py`. For example, to read a single register:
-
+- 
     ```bash
-    python rw_sensor.py -d 0 -r 0x3500
+    cd CSI-Camera/
+    cd python3 face_detect.py
     ```
 
-### ****6. Troubleshooting Tips****
-
-- If you encounter issues where `/dev/video0` does not appear, ensure that:
-  - The camera is properly connected.
-  - The correct driver is installed for your specific JetPack version.
   
 - Refer to forums or documentation for specific error messages or troubleshooting steps if problems persist.
+(https://docs.arducam.com/Nvidia-Jetson-Camera/Native-Camera/Quick-Start-Guide/)
+(https://github.com/jetsonhacksnano/CSI-Camera)
 
-This structured approach will help users understand how to set up their Arducam IMX477 with Jetson Nano effectively. Be sure to format this information clearly in your README file on GitHub for easy reference.
-
-Citations:
-[1] https://docs.arducam.com/Nvidia-Jetson-Camera/Jetvariety-Camera/Quick-Start-Guide/
-[2] https://docs.arducam.com/Nvidia-Jetson-Camera/Native-Camera/Quick-Start-Guide/
-[3] https://docs.arducam.com/Nvidia-Jetson-Camera/Introduction-to-Arducam-Jetson-Cameras/
-[4] https://forum.arducam.com/t/imx477-camera-on-jetson-nano-32-7-3/4821
-[5] https://forums.developer.nvidia.com/t/jetson-nano-arducam-imx477/215078
